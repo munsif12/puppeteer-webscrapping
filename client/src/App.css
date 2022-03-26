@@ -9,20 +9,38 @@
 body{
     height: 100vh;
     background: linear-gradient(135deg,#ffb923,#ffd16e);
+    padding: 25px;
+}
+.App{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-areas:"form result";
+  padding: 25px;
+  gap: 25px;
+}
+.error{
+  position: absolute;
+  text-align: center;
+  background-color: red;
+  padding: 10px 50px 10px 50px;
+  color: black;
+   top: 0;
+  left: 0%;
+  width: 100%;
+  border-bottom-left-radius: 21px;
+  border-bottom-right-radius: 21px;
+}
+.formDiv{
+  grid-area:form;
 }
 form{
     background-color: #202020;
     height: 450px;
-    width: 400px;
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    width: 100%;
     border-radius: 8px;
     box-shadow: 0 20px 25px rgba(0,0,0,0.35);
-    padding: 0 50px;
+    padding: 50px 50px;
+    position: relative;
 }
 form *{
     border: none;
@@ -35,9 +53,8 @@ form *{
 input{
     display: block;
     height: 45px;
-    width: 300px;
-    position: absolute;
-    background-color: #4d4d4d;
+    width: 100%;
+    background-color: #ffffff;
     color: #ffffff;
     padding: 0 15px;
     font-weight: 300;
@@ -50,14 +67,19 @@ label{
     color: #e5e5e5;
     cursor: pointer;
     font-size: 12px;
-    position: absolute;
     transition: 0.5s all;
+}
+.keyword{
+  margin: 25px 0px 0px 0px;
 }
 #keyword{
     bottom: 305px;
 }
 label[for = "keyword"]{
     bottom: 360px;
+}
+.websiteUrl{
+  margin: 25px 0px 0px 0px !important;
 }
 #websiteUrl{
     bottom: 195px;
@@ -71,12 +93,46 @@ label[for = "websiteUrl"]{
 .my-style::placeholder{
     color: #a5a5a5;
 }
+.startAimation{
+  animation:startAnimation 1s ease-in-out infinite;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+}
+@keyframes startAnimation{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
 button{
-    width: 300px;
-    position: absolute;
+    width: 100%;
     bottom: 75px;
     padding: 15px 0;
     background-color: #ffb923;
     color: #ffffff;
     border-radius: 5px;
+    margin:75px 0px 0px 0px;
+    cursor: pointer;
+}
+@media screen and (max-width:1028px){
+ .App{
+  grid-template-columns:1fr 1fr;
+   grid-template-areas:"form result"
+}
+}
+@media screen and (max-width:800px){
+ .App{
+  grid-template-columns:1fr;
+  grid-template-rows:repeat(2,1fr);
+   grid-template-areas:"form form"
+     "result result"
+}
+.data{
+  width: calc(100% - 0px);
+}
 }
